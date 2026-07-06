@@ -1,5 +1,6 @@
-# AWS FREE TIER ACCOUNT
+# AWS 
 
+# AWS Free Tier account
 Inicie com a conta free tier, alguns serviços serão disponíveis apenas 12 meses
 
 ## Principais erro ao usar AWS
@@ -126,7 +127,7 @@ Permite escrever manualmente a política de confiança.
 # Como gerar o Acess Key para uma aplicação acessar um serviço
 
     1. Vá em IAM > Users
-    3. Selecione ou crie o usuário( o usúário deve ser um IAM user )
+    3. Selecione ou crie o usuário( o usuário deve ser um IAM user )
     4. Dê acesso ao serviço desejado( Por exemplo ele pode ter a permissão AWSS3FullAcess )
     5. No menu de informações do usuário clique em Create Acess Key
         5.1. Selecione o caso de uso
@@ -171,3 +172,8 @@ Custos:
 
 ## Serviço Elastic Compute Cloud - EC2
 
+Máquinas escaláveis
+
+Para criar uma instância EC2:
+    
+    - D

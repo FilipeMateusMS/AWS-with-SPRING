@@ -11,6 +11,7 @@ import java.io.IOException;
 
 @RestController
 public class S3Controller {
+
     @Autowired
     private S3Service s3Service;
 
