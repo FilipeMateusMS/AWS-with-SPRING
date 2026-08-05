@@ -176,4 +176,41 @@ Máquinas escaláveis
 
 Para criar uma instância EC2:
     
-    - D
+    - Vá até EC2 no console da AWS
+    - Clique em Lauch instance
+    - Dê um nome para a instância
+    - Escolha o sistema operacional para a instância ( o Amazon Linux é gratuito )
+    - Escolha a arquitetura ( x86 ou Arm, por padrão x86 )
+    - Escolha o tipo de instância, existem tipos específicos para processamento, armazenamento e outros fins ( t2.micro é gratuito )
+    - Crie uma key pair para fazer o login da seguinte forma:
+        - 1. Clique em create new key pair
+        - 2. Dê um nome a sua key pair
+        - 3. Selecione o algoritmo de codificação
+        - 4. Selecione o formato do arquivo de key( chave ), caso a máquina que irá acessar a instância seja Windows -> .ppk, caso MacOS -> .pem
+        - 5. Irá ser instalado o arquivo
+    - Para permitir acesso por meio de grupos de segurança:
+        - 1. Crie um grupo de segurança ou selecione um já existente
+        - 2. Caso deseje habilite conexão SSH ( 0.0.0.0/0 é conexão de todos os destinatórios, ou seja qualquer IP )
+        - 3. Caso deseje que a instância receba requisições HTTP habilite tal opção
+    - Configure o armazenamento não volátil( por padrão 1GB de SSD( gp3 ) )
+    - Em advanced details:
+        1. É possível criar um script em shell para rodar quando a instância for iniciada
+    - Verifique o que foi adicionada em Summary 
+    - Clique em Launch instance
+
+### Para obter a lista de instâncias rodando
+
+- Procure por EC2 no console > Intances 
+- Para acessar a máquina clique no endereço de DNS
+
+### Para acessar a instância pelo computador por meio da conexão SSH
+- Siga os passos de EC2 > Instances > Selecione a instância > Clique em Connect > Clique em SSH Client
+- Caso tenha uma máquina Windows deve ter o Putty instalado
+
+### Atenção: para cada região é mostrado a quantidade de instância da região específica, por isso veja as instâncias em EC2 Global View para visualizar todas as instâncias ativas
+
+### Para pausar ou parar uma instância 
+- EC2 > Instances > Selecione a instância > Instance state 
+    - Stop Instance( parar )
+    - Reboot Instance( reiniciar )
+    - Terminate( deletar )
