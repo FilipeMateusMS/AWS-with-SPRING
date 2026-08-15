@@ -1,13 +1,7 @@
 spring:
   application:
     name: S3
+  profiles:
+    active: local
 
-cloud:
-  aws:
-    credentials:
-      access-key: access-key
-      secret-key: secret-key
-    region:
-      static: ap-south-1
-    bucket:
-      name: bucket-test
+

@@ -1,0 +1,6 @@
+cloud:
+  aws:
+    region:
+      static: ${AWS_REGION}
+    bucket:
+      name: ${AWS_BUCKET}

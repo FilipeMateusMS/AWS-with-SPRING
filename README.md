@@ -214,3 +214,60 @@ Para criar uma instância EC2:
     - Stop Instance( parar )
     - Reboot Instance( reiniciar )
     - Terminate( deletar )
+
+
+## Como conectar uma aplicação que está rodando no EC2 no serviço S3
+
+- Crie a instância EC2
+- Crie o bucket do S3
+- Crie o seguinte acesso:
+  - IAM > Roles > Create Role > Selecione AWS Service 
+  - Em use case: selecione EC2 e Allows EC2 instance to call AWS service on your behalf ( Selecione o serviço chamador)
+  - Adicione as permissões para o S3( pode ser AmazonS3FullAcess )
+  - Dê um nome a role
+- Atribua a role para a instância
+  - EC2 > Instances > Selecione a instância > Actions > Security > Modify IAM Role > Escolha a role e salve
+- Coloque o jar no EC2 e o coloque para rodar
+
+## Serviço Amazon Relational Database Service - RDS
+
+Serviço da AWS para criar, configurar e administrar bancos de dados relacionais sem você precisar cuidar diretamente do servidor.
+Em vez de instalar PostgreSQL, MySQL etc. em uma EC2, você pode deixar a AWS administrar grande parte da infraestrutura.
+
+- Para criar um banco de dados no RDS:
+    - No console da AWS pesquise por RDS > Na opção Aurora and RDS clique em Dashboard > Clique em Create a database
+    - Caso deseje facilidade selecione Easy Create, caso deseje personalizar selecione Standard Create
+    - Selecione o Banco de Dados e a versão
+    - Selecione entre Production( Para ambiente de produção ), Dev ou Free tier( Opção gratuita )
+    - Selecione a disponibilidade e durabilidade
+    - Dê um nome ao banco ( Default: database-1 )
+    - Dê o nome para o Master Username ( Default: admin ) e também uma senha
+    - Em Instance configuration selecione a instância
+    - Em storage informe a quantidade de armazenamento como, por exemplo, 20 Gigabytes
+    - Selecione as configurações de conectividade:
+        - Selecione se o banco de dados necessita se conectar ao EC2
+        - Selecione o tipo de rede( Default: IPV4 )
+        - Selecione se deseja que tenha um endereço de IP para acesso( Habilite para edição do banco de dados caso deseje )
+        - Crie uma VPC ou selecione uma já existente
+        - Selecione a zona de disponibilidade 
+    - Caso deseje crie tags, por exemplo Desenvolvimento, teste ou produção
+    - Selecione o tipo de autenticação
+    - Selecione o tipo de monitoramento do banco de dados
+    - Clique em criar Banco de Dados
+
+Para obter a lista de Banco de dados
+    - Aurora and RDS > Databases 
+
+Para acessar um banco de dados específico
+    - Por exemplo, se for MySQL deve estar instalado na máquina que irá acessar
+    - Obtenha o endpoint do banco de dados com Aurora and RDS > Databases > selecione o banco de dados > Connectivity e Security > Valor de Endpoint
+    - Dê o seguinte comando ```mysql -h [ endpoint da Banco de dados ] -P 3306 -u [ nome do usuário, o padrão é admin ] -p```
+    - Forneça a senha do usuário 
+
+Para deletar um Banco de dados e também os backups
+    - Aurora and RDS > Databases > Seleciona a base > Actions > Delete será mostrado uma lista de opções:
+        - Desabilite Create Final Snapshot
+        - Desabilite Retain automated backups
+        - Habilite "I acknowledge..."
+        - Digite "delete me"
+        - Clique em Delete
