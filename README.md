@@ -271,3 +271,23 @@ Para deletar um Banco de dados e também os backups
         - Habilite "I acknowledge..."
         - Digite "delete me"
         - Clique em Delete
+
+## Serviço DynamoDB
+
+Banco de dados para armazenar dados em formato NoSQL
+
+Para criar uma tabela no DynamoDB:
+- No console AWS pesquise e selecione "DynamoDB"
+- Dê um nome a tabela
+- Em Partion key coloque o nome para a chave primária a ser usada
+- É a chave usada para ordenar e identificar itens dentro de uma mesma Partition Key (PK).
+- Caso deseje forneça uma segunda chave que ser para pesquisa dentro da Partion Key essa chave se chama Sort Key
+- Escolha entre as configurações das tabelas, se será o padrão pré-configurado ( Default settings ) ou configurações customizadas
+- Adicione uma tag caso seja necessário
+- Clique em Create Table
+
+Para editar itens da tabela
+- Acesse DynamoDB > Explore items > Clique na tabela > Edite/crie itens
+
+Para remover uma tabela
+- Acesse DynamoDB > Tables > Delete > Digite "confirm"
