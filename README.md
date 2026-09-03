@@ -291,3 +291,33 @@ Para editar itens da tabela
 
 Para remover uma tabela
 - Acesse DynamoDB > Tables > Delete > Digite "confirm"
+
+## Serviço Lambda
+
+O AWS Lambda é um serviço da AWS que permite executar código sem precisar criar ou gerenciar servidores.
+Você escreve uma função e o Lambda executa esse código quando ocorre algum evento, como uma requisição HTTP.
+Você paga principalmente pelo tempo em que seu código é executado, sendo muito usado para APIs, automações e processamento de eventos.
+
+# Como criar uma função 
+
+- No console AWS: Lambda > Functions > Create function
+- Escolha entre as seguintes opções para criar
+  - Author from scratch (Criar do zero) — a opção mais usada para estudar
+  - Use a blueprint (Usar um modelo pronto) - a AWS fornece modelos pré-configurados para casos comuns.
+  - Container image (Imagem Docker) - em vez de enviar um JAR ou ZIP, você envia uma imagem Docker.
+- Dê um nome para a função lambda
+- Selecione um runtime, por exemplo Java 21
+- Selecione a arquitetura( por padrão x86_64 )
+- Clique em criar a função lambda
+
+# Para adicionar um gatilho que acionam uma função:
+- Lambda > Clique em triggers > Selecione o trigger desejado
+
+# Como adicionar um gatilho como o S3 para uma função lambda
+- Lambda > Clique em triggers 
+- Selecione S3
+- Coloque qual tipo de evento irá acionar, por exemplo, pode ser PUT, POST, COPY( no caso do S3 ), ou pode ser todos os triggers
+
+# Para verificar os logs do lambda
+- Vá em Lambda > Functions > Selecione a função > Clique em Monitor > Clique em View CloudWatch logs
+
