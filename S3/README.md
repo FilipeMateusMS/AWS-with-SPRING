@@ -33,3 +33,33 @@ AWS_BUCKET=<nome_do_bucket>
 
 - Nunca compartilhe suas credenciais da AWS.
 - O usuário IAM deve possuir permissão para acessar o bucket informado.
+
+## Como hospedar um site estático no S3
+
+- Crie um bucket no S3
+  - Com General purpose
+  - Dê um nome ao bucket
+  - Desabilite Block all public acess
+  - Crie o bucket
+- Suba os arquivos para bucket, contendo o arquivo index.html
+- Mude as propriedades do bucket( S3 > Buckets > Selecione o bucket > Selecione a aba Properties)
+    - Clique em edit
+    - Habilite hospedagem de site estático
+    - Forneça a página inicial do site como por exemplo index.html( Deve estar na raíz do bucket )
+    - Caso deseje, coloque uma página de erro
+- Mude as permissões do bucket ( S3 > Buckets > Selecione o bucket > Selecione a aba Permissions )
+  - Edite as políticas do bucket, coloque por exemplo:
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::meu-bucket-exemplo/*"
+    }
+  ]
+}
+```
