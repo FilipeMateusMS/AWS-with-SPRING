@@ -321,3 +321,4 @@ Você paga principalmente pelo tempo em que seu código é executado, sendo muit
 # Para verificar os logs do lambda
 - Vá em Lambda > Functions > Selecione a função > Clique em Monitor > Clique em View CloudWatch logs
 
+# VPC - VIRTUAL PRIVATE NETWORK
