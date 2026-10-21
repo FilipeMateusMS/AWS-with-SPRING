@@ -321,4 +321,5 @@ Você paga principalmente pelo tempo em que seu código é executado, sendo muit
 # Para verificar os logs do lambda
 - Vá em Lambda > Functions > Selecione a função > Clique em Monitor > Clique em View CloudWatch logs
 
-# VPC - VIRTUAL PRIVATE NETWORK
+
+### Cada serviço pode ter a sua própria variáveis de ambientes,mas se deseja utilizar a mesma variável deve colocar no AWS Systems Manager Parameter Store 
